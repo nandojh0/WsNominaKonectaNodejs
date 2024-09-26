@@ -3,9 +3,14 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { validateUser } = require('../validators/userValidator');
+const sanitizeInput = require('../validators/sanitizeInput');
 
 exports.register = async (req, res) => {
-    const { username, password } = req.body;
+    let { username, password } = req.body;
+
+
+    username = sanitizeInput(username);
+    password = sanitizeInput(password);
 
     // Validate user input
     const { isValid, message } = validateUser({ username, password });
@@ -29,7 +34,11 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-    const { username, password } = req.body;
+    let { username, password } = req.body;
+
+    username = sanitizeInput(username);
+    password = sanitizeInput(password);
+
     // Validate user input
     const { isValid, message } = validateUser({ username, password });
     if (!isValid) {
