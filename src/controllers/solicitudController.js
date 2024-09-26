@@ -2,7 +2,7 @@
 const Solicitud = require('../models/solicitud');
 const Empleado = require('../models/empleado');
 const validateSolicitud = require('../validators/solicitudValidator');
-const {validateNombre} = require('../validators/empleadoValidator');
+const { validateNombre } = require('../validators/empleadoValidator');
 const sanitizeInput = require('../validators/sanitizeInput');
 
 class SolicitudController {
@@ -40,8 +40,13 @@ class SolicitudController {
     static async eliminarSolicitud(req, res) {
         try {
             const { id } = req.params;
-            const solicitud = await Solicitud.eliminarSolicitud(id);
-            res.status(200).json(solicitud);
+            // Verificar si la solicitud existe
+            const solicitudExistente = await Solicitud.obtenerSolicitudPorId(id);
+            if (!solicitudExistente) {
+                return res.status(404).json({ message: 'Solicitud no encontrada' });
+            }
+            await Solicitud.eliminarSolicitud(id);
+            res.status(200).json({ message: 'Solicitud eliminada correctamente' });
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

@@ -2458,6 +2458,161 @@
 					]
 				},
 				{
+					"name": "Eliminar solicitud",
+					"item": [
+						{
+							"name": "Eliminar Solicitud",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes/9",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Solicitud No existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes/999",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes",
+										"999"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Consultar todas las solicitudes",
 					"event": [
 						{

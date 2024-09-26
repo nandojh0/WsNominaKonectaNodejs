@@ -22,6 +22,12 @@ class Solicitud {
         return res.rows[0];
     }
 
+    static async obtenerSolicitudPorId(id) {
+        const query = 'SELECT s.id AS solicitud_id, s.codigo, s.descripcion, s.resumen, e.nombre FROM solicitud s JOIN empleado e ON s.id_empleado = e.id WHERE s.id = $1;';
+        const res = await pool.query(query, [id]);
+        return res.rows[0]; // Devuelve la primera fila, que será la solicitud si existe
+    }
+
     static async findByEmpleadoNombre(nombre){
         const result = await pool.query(`
             SELECT s.id AS solicitud_id, s.codigo, s.descripcion, s.resumen 
