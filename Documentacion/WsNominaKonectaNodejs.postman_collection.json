@@ -1,0 +1,2537 @@
+{
+	"info": {
+		"_postman_id": "9d8af1b0-b2a9-400f-ac4f-2c63b1b653c2",
+		"name": "WsNominaKonectaNodejs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17465993"
+	},
+	"item": [
+		{
+			"name": "Autenticación",
+			"item": [
+				{
+					"name": "Registrar",
+					"item": [
+						{
+							"name": "registrar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"prueba\",\r\n    \"password\": \"prueba123456789\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/register",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar Contraseña no válida (demasiado corta)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"ValidUser123\",\r\n    \"password\": \"123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/register",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar Nombre de usuario no válido (demasiado largo)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\r\n    \"password\": \"SecurePass123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/register",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar Nombre de usuario no válido (vacío)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"SecurePass123\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/register",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrar El nombre de usuario ya existe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"prueba\",\r\n    \"password\": \"prueba123456789\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/register",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Solicitar token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"prueba\",\r\n    \"password\": \"prueba123456789\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/login",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Solicitar token Contraseña no válida (vacío)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"prueba\",\r\n    \"password\": \"\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/login",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Solicitar token Nombre de usuario no válido (vacío)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"SecurePass123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/login",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Solicitar token Contraseña incorrecta",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"prueba\",\r\n    \"password\": \"WrongPassword\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/login",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Solicitar token Usuario no registrado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"NonExistentUser\",\r\n    \"password\": \"SomePassword\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/auth/login",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Personas",
+			"item": [
+				{
+					"name": "Crear Persona",
+					"item": [
+						{
+							"name": "Crear Persona",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Juan\",\r\n  \"fecha_ingreso\": \"2023-09-25\",\r\n  \"salario\": \"5000\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear Persona Nombre inválido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Juan123\",\r\n  \"fecha_ingreso\": \"2023-09-25\",\r\n  \"salario\": \"5000\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear Persona Fecha inválida",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Juan\",\r\n    \"fecha_ingreso\": \"25-09-2023\",\r\n    \"salario\": \"5000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear Persona Salario inválido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Juan\",\r\n    \"fecha_ingreso\": \"2023-09-25\",\r\n    \"salario\": \"5000abc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear Persona Nombre con caracteres peligrosos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"<Juan>\",\r\n  \"fecha_ingreso\": \"2023-09-25\",\r\n  \"salario\": \"5000\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear Persona Fecha con caracteres peligrosos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Juan\",\r\n  \"fecha_ingreso\": \"<script>alert('2023-09-25')</script>\",\r\n  \"salario\": \"5000\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear Persona Todos los campos inválidos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"123!@#\",\r\n  \"fecha_ingreso\": \"invalid-date\",\r\n  \"salario\": \"abc\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Buscar empleado por nombre",
+					"item": [
+						{
+							"name": "Buscar por nombre",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Lina\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados/nombre",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados",
+										"nombre"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar por nombre Solicitud no válida: el nombre excede la longitud máxima",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Maria de los Angeles Guadalupe Constanza del Pilari\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados/nombre",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados",
+										"nombre"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar por nombre Solicitud no válida: caracteres especiales en el nombre",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Juan@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados/nombre",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados",
+										"nombre"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar por nombre Solicitud no válida - Nombre vacío",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/empleados/nombre",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"empleados",
+										"nombre"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "buscar All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const server = pm.environment.get(\"HOTS\");\r",
+									"const user = pm.environment.get(\"user\");\r",
+									"const password = pm.environment.get(\"password\");\r",
+									"const postRequest = {\r",
+									"    url: server+'/api/auth/login',\r",
+									"    method: 'POST',\r",
+									"    header: {\r",
+									"        'Content-Type': 'application/json',\r",
+									"        'Accept': '*/*'\r",
+									"    },\r",
+									"    body: {    \r",
+									"    mode: 'raw', \r",
+									"    raw: JSON.stringify({\"username\": user,\r",
+									"    \"password\": password})\r",
+									"    }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, (error, response) =>{\r",
+									"    if (error) {\r",
+									"        console.log(error);\r",
+									"    } else {\r",
+									"        console.log(response.json());\r",
+									"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+									"    }\r",
+									"   \r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{WsTokenNomina}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOTS}}/api/empleados",
+							"host": [
+								"{{HOTS}}"
+							],
+							"path": [
+								"api",
+								"empleados"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Solicitudes",
+			"item": [
+				{
+					"name": "Crear solicitud",
+					"item": [
+						{
+							"name": "Crear una nueva solicitud",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL1234\",\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": \"Solicitud para vacaciones del 1 al 20 de diciembre\",\r\n    \"id_empleado\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Todo Vacío",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"\",\r\n    \"descripcion\": \"\",\r\n    \"resumen\": \"\",\r\n    \"id_empleado\": \"\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Faltan Campos Requeridos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": \"Solicitud para vacaciones del 1 al 10 de diciembre\",\r\n    \"id_empleado\": 1\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud ID de Empleado Inválido (nulo)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL123\",\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": \"Solicitud para vacaciones\",\r\n    \"id_empleado\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud ID de Empleado Inválido (no numérico)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL123\",\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": \"Solicitud para vacaciones\",\r\n    \"id_empleado\": \"uno\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Resumen Inválido (excede 50 caracteres)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL123\",\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": \"Este resumen es demasiado largo para pasar la validación porque tiene más de cincuenta caracteres.\",\r\n    \"id_empleado\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Resumen Inválido (no es una cadena)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL123\",\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": 67890,\r\n    \"id_empleado\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Descripción Inválida (no es una cadena)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL123\",\r\n    \"descripcion\": 12345,\r\n    \"resumen\": \"Solicitud para vacaciones\",\r\n    \"id_empleado\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Código Inválido (excede 50 caracteres)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL12345678901234567890123456789012345678901234567890\",\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": \"Solicitud para vacaciones del 1 al 10 de diciembre\",\r\n    \"id_empleado\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Descripción Inválida (excede 50 caracteres)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL123\",\r\n    \"descripcion\": \"Esta descripción es demasiado larga para pasar la validación, porque tiene más de cincuenta caracteres.\",\r\n    \"resumen\": \"Solicitud para vacaciones\",\r\n    \"id_empleado\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una nueva solicitud Código Inválido (no alfanumérico)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codigo\": \"SOL#123\",\r\n    \"descripcion\": \"Solicitud de vacaciones\",\r\n    \"resumen\": \"Solicitud para vacaciones del 1 al 10 de diciembre\",\r\n    \"id_empleado\": 1\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "consultar solicitudes con el nombre del empleado",
+					"item": [
+						{
+							"name": "Consultar las solicitudes solicitudes por empleado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Nuevo Empleado\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes/por-empleado",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes",
+										"por-empleado"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar las solicitudes solicitudes por empleado no empleado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"prueba\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes/por-empleado",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes",
+										"por-empleado"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar las solicitudes solicitudes por empleado nombre invalido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const server = pm.environment.get(\"HOTS\");\r",
+											"const user = pm.environment.get(\"user\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"const postRequest = {\r",
+											"    url: server+'/api/auth/login',\r",
+											"    method: 'POST',\r",
+											"    header: {\r",
+											"        'Content-Type': 'application/json',\r",
+											"        'Accept': '*/*'\r",
+											"    },\r",
+											"    body: {    \r",
+											"    mode: 'raw', \r",
+											"    raw: JSON.stringify({\"username\": user,\r",
+											"    \"password\": password})\r",
+											"    }\r",
+											"};\r",
+											"pm.sendRequest(postRequest, (error, response) =>{\r",
+											"    if (error) {\r",
+											"        console.log(error);\r",
+											"    } else {\r",
+											"        console.log(response.json());\r",
+											"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+											"    }\r",
+											"   \r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{WsTokenNomina}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"Juan123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOTS}}/api/solicitudes/por-empleado",
+									"host": [
+										"{{HOTS}}"
+									],
+									"path": [
+										"api",
+										"solicitudes",
+										"por-empleado"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Consultar todas las solicitudes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const server = pm.environment.get(\"HOTS\");\r",
+									"const user = pm.environment.get(\"user\");\r",
+									"const password = pm.environment.get(\"password\");\r",
+									"const postRequest = {\r",
+									"    url: server+'/api/auth/login',\r",
+									"    method: 'POST',\r",
+									"    header: {\r",
+									"        'Content-Type': 'application/json',\r",
+									"        'Accept': '*/*'\r",
+									"    },\r",
+									"    body: {    \r",
+									"    mode: 'raw', \r",
+									"    raw: JSON.stringify({\"username\": user,\r",
+									"    \"password\": password})\r",
+									"    }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, (error, response) =>{\r",
+									"    if (error) {\r",
+									"        console.log(error);\r",
+									"    } else {\r",
+									"        console.log(response.json());\r",
+									"        pm.globals.set(\"WsTokenNomina\", response.json().token);\r",
+									"    }\r",
+									"   \r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{WsTokenNomina}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOTS}}/api/solicitudes",
+							"host": [
+								"{{HOTS}}"
+							],
+							"path": [
+								"api",
+								"solicitudes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
