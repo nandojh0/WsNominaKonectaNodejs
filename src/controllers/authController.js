@@ -8,7 +8,6 @@ const sanitizeInput = require('../validators/sanitizeInput');
 exports.register = async (req, res) => {
     let { username, password } = req.body;
 
-
     username = sanitizeInput(username);
     password = sanitizeInput(password);
 
@@ -68,4 +67,26 @@ exports.login = async (req, res) => {
         res.status(500).json({ message: 'Error en el login' });
     }
 };
+
+exports.refreshToken = async (req, res) => {
+    const { token } = req.body;
+
+    if (!token) {
+        return res.status(401).json({ message: 'Token no proporcionado' });
+    }
+
+    try {
+        // Verifica el token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        
+        // Genera un nuevo token
+        const newToken = jwt.sign({ id: decoded.id, username: decoded.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        
+        res.json({ token: newToken });
+    } catch (error) {
+        console.error(error);
+        res.status(403).json({ message: 'Token inválido o expirado' });
+    }
+};
+
 

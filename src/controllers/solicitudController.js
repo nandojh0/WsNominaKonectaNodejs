@@ -4,6 +4,7 @@ const Empleado = require('../models/empleado');
 const validateSolicitud = require('../validators/solicitudValidator');
 const { validateNombre } = require('../validators/empleadoValidator');
 const sanitizeInput = require('../validators/sanitizeInput');
+const unescapeInput = require('../validators/unescapeInput');
 
 class SolicitudController {
     static async crearSolicitud(req, res) {
@@ -31,7 +32,15 @@ class SolicitudController {
     static async obtenerSolicitudes(req, res) {
         try {
             const solicitudes = await Solicitud.obtenerSolicitudes();
-            res.status(200).json(solicitudes);
+
+             // Aplicar unescapeInput a descripcion y resumen para cada solicitud
+        const solicitudesProcesadas = solicitudes.map(solicitud => ({
+            ...solicitud,
+            descripcion: unescapeInput(solicitud.descripcion),
+            resumen: unescapeInput(solicitud.resumen)
+        }));
+
+            res.status(200).json(solicitudesProcesadas);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
